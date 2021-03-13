@@ -131,7 +131,27 @@
                 WebDriverKeys::BACKSPACE,
               ));
 
+
+			# Check if a element was found:
+			if (count($drive->findElements(WebDriverBy::cssSelector('video'))) > 0) {
+			$videoURL = $drive->findElement(WebDriverBy::cssSelector('video'))->getAttribute('src');
+			} else {
+			echo "Element not found!";
+			}
+
+			if you use "findElement" instead of "findElements" and the element cannot be found, php will throw a exception.
+
+			#listing multiple elements found:
+			if (count($drive->findElements(WebDriverBy::cssSelector('a'))) != 0){
+				$links = $drive->findElements(WebDriverBy::cssSelector('a'));
+				foreach ($links as $key => $value) {
+					echo $value->getAttribute('href');
+				}
+			}
+
+
         *'Note' -- /RemoteWebElement->clear() will clear text from a textarea or a text input.
+		
 
 	*	Checkbox/Radio
 	
@@ -232,3 +252,42 @@
 
 			# Or all of them
 			$driver->manage()->deleteAllCookies();
+
+* Windows
+
+	* Scroll a Window to the end:
+
+			$actualHeight = 0;
+			$nextHeight = 0;
+			while (true) {
+				try {
+					$nextHeight += 20;      
+					$actualHeight =  $driver->executeScript('return document.body.scrollHeight;');
+					if ($nextHeight >= ($actualHeight - 50 ) ) break;
+					$driver->executeScript("window.scrollTo(0, $nextHeight);");
+					$driver->manage()->timeouts()->implicitlyWait = 5;
+				} catch (Exception $e) {
+					break;
+				}
+			}
+	
+	* Working with Tabs:
+
+			(...)
+
+			// Get first window hWND
+			$lstr_window1 = $lobj_Driver->getWindowHandle();
+
+			// Open second tab and get the hWND from second tab
+			$lobj_Driver->newWindow();
+			$lstr_window2 = $lobj_Driver->getWindowHandle();
+
+			// alternate to 1st window
+			$lobj_Driver->switchTo()->window($lstr_window1);
+
+			// alternate to 2nd window
+			$lobj_Driver->switchTo()->window($lstr_window2);
+
+References:
+
+* https://php-webdriver.github.io/php-webdriver/latest/Facebook/WebDriver.html
