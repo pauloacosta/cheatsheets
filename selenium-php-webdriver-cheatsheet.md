@@ -106,6 +106,16 @@
 			# </div>
 
 			$element = $driver->findElement(WebDriverBy::cssSelector('#food span.dairy'));
+	
+	* Finding an element in a sub-element:
+
+            $subelement = $drive->findElements(WebDriverBy::cssSelector('a'));
+            if (count($subelement) != 0) {
+                $element = $subelement.findElements(WebDriverBy::cssSelector('a'));
+                foreach ($element as $key => $value) {
+                    echo $value->getAttribute('href');
+                }
+            }
 
 *	Element's operation
 
