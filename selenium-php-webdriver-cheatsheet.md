@@ -1,5 +1,7 @@
 ### Webdriver PHP API workthough
 
+*	Download ChromeDriver at https://chromedriver.chromium.org/downloads 
+
 *	Open a browser
 	
 		# start an instance of firefox with selenium-webdriver
