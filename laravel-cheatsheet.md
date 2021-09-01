@@ -8,4 +8,4 @@
 
     ** Specific Laravel version:
     
-    composer create-project laravel/laravel your-project-name --prefer-dist 5.8.*
+		composer create-project laravel/laravel your-project-name --prefer-dist 5.8.*
