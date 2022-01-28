@@ -1,26 +1,41 @@
 Antes de qualquer interação com o git é necessário identificar seu usuário:
 
-	git config --local user.name "Seu nome aqui"
-	git config --local user.email "seu@email.aqui"
+```git
+git config --local user.name "Seu nome aqui"
+```
+	
+```git
+git config --local user.email "seu@email.aqui"
+```
 
+```git
 git --version - ver a versão que está instalada
+```
 
+```git
 git init - Inicializar (criar) um repositório
-
+```
+```
 git init --bare - Inicializar a pasta em um servidor remoto para receber as alterações
-
+```
+```
 git status - mostra o status do repositório, arquivos modificados, arquivos não rastreados, etc.
-
+```
+```
 git add <nomedoarquivo> - para começar a rastrar mudanças nele (adicionando ao repositório)
-
+```
+```
 git add . - para começar a rastrear mudanças em todos os arquivos da pasta atual
-
+```
+```
 git rm --cached <nomedoarquivo> - para parar de rastrear mudanças no arquivo, mas o mantem no diretorio
-
+```
+```
 git rm -f <nomedoarquivo> - para parar de rastrear mudanças no arquivo e o remove do diretório também.
-
+```
+```
 git commit -m "Mensagem" - para confirmar as alterações no servidor local do git, ele gerará um código de identificação para este commit (ex.: 7bb3fb9) - A mensagem não pode ser vazia
-			 - o primeiro commit no repositório é chamado de "root-commit"
+```			 - o primeiro commit no repositório é chamado de "root-commit"
 
 
 Se um arquivo for modificado, não deve-se apenas dar o commit... o novo arquivo com modificações precisa ser adicionado com o comando git add.
@@ -32,11 +47,15 @@ Working tree: Local onde os arquivos realmente estão sendo armazenados e editad
 index: Local onde o Git armazena o que será commitado, ou seja, o local entre a working tree e o repositório Git em si.
 
 --
-
+```
 git log - mostra o histórico dos commits incluindo o ID, nome e e-mail de quem alterou, branch, e mensagens do commit
+```
+```
 git log --oneline - mostra o histórico dos commits incluindo o ID, nome e e-mail de quem alterou, branch, e mensagens do commit de forma resumida em uma linha
+```
+```
 git log -p - mostra tudo e mais as modificações realizadas nos arquivos.
-
+```
 
 
 Arquivo: .gitignore
@@ -44,30 +63,48 @@ Arquivo: .gitignore
 	- para ignorar uma pasta "nomedapasta/"
 
 
-
+```
 git remote - lista os servidores remotos cadastrados.
+```
 
+```
 git remote add <nome> <endreço que pode ser URL, pasta na rede, ou pasta)
+```
 
+```			       
 git remote -v - mostra os servidores e os endereços
-
+```
+```			       
 git clone  <endereço de um servidor> <opcional:pasta onde será clonada> - copia o repositorio para uma pasta.
-
+```
+```
 git push <nome do servidor remote> <branch: ex. master> - Envia as alterações do servidor local para o servidor remoto
-
+```
+```
 git remote rename <nomedorepositorioremoto> <novonomedorepositorioremoto> - Renomear o nome do servidor remoto
-
+```
+```
 git pull <nomeservidorremoto> <branchremota> - fazer download de uma branch do servidor remoto
-
+```
+	
+```
 git push -u <servidorremoto <branch local> - enviar a branch local para o remoto, e o -u diz que sempre que der um git push nessa pasta ele enviará para esse remoto
 					   - Ou seja, depois desse comando, babsta executar o git push nessa pasta e ele enviará o branchlocal para o servidor remoto definido anteriormente.
-
-git branch <nome> - cria um novo branch
-git branch - Listar todas as branches do repositório local
-git branch -a - Listar todas as branches, tanto local como remoto
-git branch -r - Listar todas as branches no repositório remoto
-git show-branch - Listar todas as branches com informações de seus commits
+```
 	
+```
+git branch <nome> - cria um novo branch
+
+```git branch``` - Listar todas as branches do repositório local
+
+
+```git branch -a - Listar todas as branches, tanto local como remoto```
+
+	git branch -r - Listar todas as branches no repositório remoto
+
+```
+git show-branch - Listar todas as branches com informações de seus commits
+```	
 git checkout <nome> - passo a trabalhar no branch <nome>
 
 git checkout -b <nome> - cria o branch nome e já começa a trabalhar nele.
@@ -110,10 +147,14 @@ git push <remote> <tag> - envia uma tag (e os arquivos neste status?) - caso iss
                         - mas deve-se lemrar de enviar antes o branch.
                         - Gera uma Release, ou seja, conseguimos baixar um arquivo compactado com o nosso código neste ponto
 
+```
 git rebase -i <id> - id do commit anterior aos que eu quero juntar. (o que fica começa por pick, os que vão se unificados marquase com S de Smash)
+```
 
+```
 git cherry-pick	<id> - pega o comit e copia para a branch em que se está.
-
+```
+	
 git bisect start - incializa busca para localizar alteração
 	git bisect BAD HEAD
 	git bisect GOOD <ID de quando estava ruim> Ele então ira buscar entre o HEAD, e o ID.
@@ -125,11 +166,17 @@ git bisect start - incializa busca para localizar alteração
 
 	git show <ID> mostra as alterações de um commit
 
+```
 git blame <nomedoarquivo> - mostra todas as alterações no arquivo para se encontrar o autor de uma alteração 
+```
+```
+git branch -d <titulo> excluir um branch
+```
 
-git branch -d <titulo> excluir um branch - 
-git branch -D <titulo> excluir um branch caso ele tenha alguns commits a frente do master
-
+Excluir um branch caso ele tenha alguns commits a frente do master:
+```
+git branch -D <titulo> 
+```
 
 Para treinar: https://git-school.github.io/visualizing-git/#free
 
