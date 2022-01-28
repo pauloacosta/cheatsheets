@@ -63,6 +63,11 @@ git push -u <servidorremoto <branch local> - enviar a branch local para o remoto
 					   - Ou seja, depois desse comando, babsta executar o git push nessa pasta e ele enviará o branchlocal para o servidor remoto definido anteriormente.
 
 git branch <nome> - cria um novo branch
+git branch - Listar todas as branches do repositório local
+git branch -a - Listar todas as branches, tanto local como remoto
+git branch -r - Listar todas as branches no repositório remoto
+git show-branch - Listar todas as branches com informações de seus commits
+	
 git checkout <nome> - passo a trabalhar no branch <nome>
 
 git checkout -b <nome> - cria o branch nome e já começa a trabalhar nele.
