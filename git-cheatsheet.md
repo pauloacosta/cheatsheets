@@ -86,6 +86,9 @@ git remote rename <nomedorepositorioremoto> <novonomedorepositorioremoto> - Reno
 ```
 git pull <nomeservidorremoto> <branchremota> - fazer download de uma branch do servidor remoto
 ```
+```
+git fetch é o comando que diz para seu repositório local obter informações (meta-dados) no repositório remoto (ele não faz transferência de arquivos, ao contrário do git pull, que além de fazer essa checagem ainda transfere copia para seu repositório local as mudanças que ele encontra no repositório remoto.
+```	
 	
 ```
 git push -u <servidorremoto <branch local> - enviar a branch local para o remoto, e o -u diz que sempre que der um git push nessa pasta ele enviará para esse remoto
